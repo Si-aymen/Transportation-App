@@ -1,1 +1,1 @@
-# Courzelo-Web-LMS
+# Courzelo-Web-Skills
