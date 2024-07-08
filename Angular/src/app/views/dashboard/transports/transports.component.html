@@ -10,7 +10,7 @@
             <div class="card-body text-center">
               <i class="i-Share-on-Cloud"></i>
               <p class="text-muted mt-2 mb-2">Today's users</p>
-              <p class="text-primary text-24 line-height-1 m-0">104</p>
+              <p class="text-primary text-24 line-height-1 m-0">{{count$}}</p>
             </div>
           </div>
         </div>
@@ -78,7 +78,6 @@
 
 </div>
 
-
 <div class="row">
   <div class="col-md-12">
     <div class="card o-hidden mb-4">
@@ -91,7 +90,7 @@
         [rowHeight]="60"
         [scrollbarV]="true"
         [limit]="10"
-        [rows]="transports | async"
+        [rows]="transports$ | async"
       >
         <ngx-datatable-column name="photo" [maxWidth]="100">
           <ng-template ngx-datatable-header-template>
@@ -102,9 +101,12 @@
           </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="id" >
+        <ngx-datatable-column name="id">
           <ng-template ngx-datatable-header-template>
             id
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            {{ row.id }}
           </ng-template>
         </ngx-datatable-column>
 
@@ -112,17 +114,26 @@
           <ng-template ngx-datatable-header-template>
             departure
           </ng-template>
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            {{ row.departure }}
+          </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="destination">
           <ng-template ngx-datatable-header-template>
             destination
           </ng-template>
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            {{ row.destination }}
+          </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="time">
           <ng-template ngx-datatable-header-template>
             time
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            {{ row.time }}
           </ng-template>
         </ngx-datatable-column>
 
@@ -131,12 +142,11 @@
             Actions
           </ng-template>
           <ng-template ngx-datatable-cell-template let-row="row">
-            <button class="btn btn-primary  mr-2" (click)="view(row)">View</button> 
-            <button class="btn btn-warning  mr-2" (click)="edit(row)">Edit</button>
+            <button class="btn btn-primary mr-2" (click)="view(row)">View</button> 
+            <button class="btn btn-warning mr-2" (click)="edit(row)">Edit</button>
             <button class="btn btn-danger" (click)="delete(row)">Delete</button>
           </ng-template>
         </ngx-datatable-column>
-
       </ngx-datatable>
     </div>
   </div>

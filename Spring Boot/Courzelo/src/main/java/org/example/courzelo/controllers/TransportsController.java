@@ -21,7 +21,7 @@ import java.util.List;
 public class TransportsController {
     ITransportsService transportsService ;
 
-    @GetMapping("/GetAll/transports")
+    @GetMapping("/GetAll")
     public List<Transports> getAllTransports() {
         return transportsService.retrieveAllTransports();
     }

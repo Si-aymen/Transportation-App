@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { echartStyles } from 'src/app/shared/echart-styles';
+import { Transports } from 'src/app/shared/models/transports/Transports';
 import { TransportsService } from 'src/app/shared/services/transports/transports.service';
+
 
 
 @Component({
@@ -10,9 +13,9 @@ import { TransportsService } from 'src/app/shared/services/transports/transports
 })
 export class TransportsComponent implements OnInit {
   chartLineOption3: any;
-  transports: any ; 
+  transports$: Observable<Transports[]>;  ; 
   Buttons:string;
-  count:any ;
+  count$:any ;
 
   constructor(
 		private transportsService:TransportsService
@@ -20,9 +23,6 @@ export class TransportsComponent implements OnInit {
 
 
   ngOnInit() {
-
-    this.count = this.transportsService.getCount();
-
 
     this.chartLineOption3 = {
       ...echartStyles.lineNoAxis, ...{
@@ -45,29 +45,29 @@ export class TransportsComponent implements OnInit {
         }]
       }
     };
+
+    this.loadTransports();
+    this.loadCount();
     this.chartLineOption3.xAxis.data = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-    this.transports= this.transportsService.getTransports();
+
+
 
   }
 
-
-
-  view(row: any): void {
-    console.log('View', row);
-    // Ajoutez ici votre logique pour la vue
+  loadTransports(): void {
+    this.transports$ = this.transportsService.getTransports();
   }
 
-  // Exemple de méthode pour l'édition
-  edit(row: any): void {
-    console.log('Edit', row);
-    // Ajoutez ici votre logique pour l'édition
-  }
-
-  // Exemple de méthode pour la suppression
-  delete(row: any): void {
-    console.log('Delete', row);
-    // Ajoutez ici votre logique pour la suppression
+  loadCount(): void {
+    this.transportsService.getCount().subscribe({
+      next: (data: number) => {
+        this.count$ = data;
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      }
+    });
   }
 
 

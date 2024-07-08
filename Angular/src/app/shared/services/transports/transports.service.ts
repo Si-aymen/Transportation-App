@@ -15,12 +15,12 @@ export class TransportsService {
 
 
 
-  constructor(private http: HttpClient,    private sanitizer: DomSanitizer) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
 
    }
 
-   getTransports(): Observable<Transports> {
-    return this.http.get<Transports>(`${this.baseUrl}/GetAll/transports`);
+   getTransports(): Observable<Transports[]> {
+    return this.http.get<Transports[]>(`${this.baseUrl}/GetAll`);
   }
 
   getCount(): Observable<number>{
