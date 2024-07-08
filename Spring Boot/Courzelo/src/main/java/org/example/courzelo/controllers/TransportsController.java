@@ -26,6 +26,11 @@ public class TransportsController {
         return transportsService.retrieveAllTransports();
     }
 
+    @GetMapping("/GetById/transports/{Transports-id}")
+    public Transports getBlocs(@PathVariable("Transports-id") String transprotsId) {
+        return transportsService.retrieveTransport(transprotsId);
+    }
+
 
     @PostMapping("/add-Trabsports")
     public Transports addBloc(@RequestBody Transports transports) {
