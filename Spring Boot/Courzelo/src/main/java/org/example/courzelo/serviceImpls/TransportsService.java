@@ -40,4 +40,9 @@ public class TransportsService implements ITransportsService {
     public Transports modifyTransports(Transports transports) {
         return null;
     }
+
+    @Override
+    public Long GetNumberOfTransports() {
+        return transportsRepository.count();
+    }
 }

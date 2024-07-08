@@ -22,8 +22,13 @@ public class TransportsController {
     ITransportsService transportsService ;
 
     @GetMapping("/GetAll/transports")
-    public List<Transports> getBlocs() {
+    public List<Transports> getAllTransports() {
         return transportsService.retrieveAllTransports();
+    }
+
+    @GetMapping("/count/transports")
+    public Long getNumberOfTransports() {
+        return transportsService.GetNumberOfTransports();
     }
 
     @GetMapping("/GetById/transports/{Transports-id}")

@@ -15,4 +15,6 @@ public interface ITransportsService {
     public void removeTransports(String tansportsId);
 
     public Transports modifyTransports(Transports transports);
+
+    public  Long GetNumberOfTransports();
 }

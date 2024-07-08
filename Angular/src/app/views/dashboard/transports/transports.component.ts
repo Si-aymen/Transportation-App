@@ -11,6 +11,8 @@ import { TransportsService } from 'src/app/shared/services/transports/transports
 export class TransportsComponent implements OnInit {
   chartLineOption3: any;
   transports: any ; 
+  Buttons:string;
+  count:any ;
 
   constructor(
 		private transportsService:TransportsService
@@ -18,6 +20,9 @@ export class TransportsComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.count = this.transportsService.getCount();
+
 
     this.chartLineOption3 = {
       ...echartStyles.lineNoAxis, ...{
@@ -44,6 +49,25 @@ export class TransportsComponent implements OnInit {
 
     this.transports= this.transportsService.getTransports();
 
+  }
+
+
+
+  view(row: any): void {
+    console.log('View', row);
+    // Ajoutez ici votre logique pour la vue
+  }
+
+  // Exemple de méthode pour l'édition
+  edit(row: any): void {
+    console.log('Edit', row);
+    // Ajoutez ici votre logique pour l'édition
+  }
+
+  // Exemple de méthode pour la suppression
+  delete(row: any): void {
+    console.log('Delete', row);
+    // Ajoutez ici votre logique pour la suppression
   }
 
 
