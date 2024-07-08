@@ -28,7 +28,7 @@ public class TransportsController {
     }
 
 
-    @PostMapping("/add-Bloc")
+    @PostMapping("/add-Trabsports")
     public Transports addBloc(@RequestBody Transports transports) {
         Transports transports1 = transportsService.addTransports(transports);
         return transports1;

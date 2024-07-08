@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.lang.annotation.Documented;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -19,7 +20,8 @@ public class Transports {
     private String id;
     private String departure;
     private String destination;
-    private String time;
+    private Date time;
+    private float price ;
 
 
 }
