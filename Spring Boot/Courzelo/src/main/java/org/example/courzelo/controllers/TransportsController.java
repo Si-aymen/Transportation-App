@@ -23,14 +23,19 @@ public class TransportsController {
 
     @GetMapping("/GetAll/transports")
     public List<Transports> getBlocs() {
-        List<Transports> listTransports = transportsService.retrieveAllTransports();
-        return listTransports;
+        return transportsService.retrieveAllTransports();
     }
 
 
     @PostMapping("/add-Trabsports")
     public Transports addBloc(@RequestBody Transports transports) {
-        Transports transports1 = transportsService.addTransports(transports);
-        return transports1;
+        return transportsService.addTransports(transports);
     }
+
+    @DeleteMapping("/remove-Transports/{Transports-id}")
+    public void removeTransports(@PathVariable("Transports-id") String transprotsId) {
+        transportsService.removeTransports(transprotsId);
+    }
+
+
 }
