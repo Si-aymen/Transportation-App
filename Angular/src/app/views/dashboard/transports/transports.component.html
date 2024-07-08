@@ -77,3 +77,42 @@
 
 
 </div>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card o-hidden mb-4">
+			<ngx-datatable style="height: calc(100vh - 270px); box-shadow: none" class="material fullscreen" [columnMode]="'force'"
+			 [headerHeight]="50" [footerHeight]="50" [rowHeight]="60" [scrollbarV]="true" [limit]="10" [rows]="transports | async">
+				<ngx-datatable-column name="photo" [maxWidth]="100">
+					<ng-template ngx-datatable-header-template>
+						Icon
+					</ng-template>
+					<ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <i class="i-Jeep"></i>
+					</ng-template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="id" [width]="300">
+					<ng-template ngx-datatable-header-template>
+						id
+					</ng-template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="departure">
+					<ng-template ngx-datatable-header-template>
+						departure
+					</ng-template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="destination">
+					<ng-template ngx-datatable-header-template>
+						destination
+					</ng-template>
+				</ngx-datatable-column>
+        <ngx-datatable-column name="time">
+					<ng-template ngx-datatable-header-template>
+						time
+					</ng-template>
+				</ngx-datatable-column>
+			</ngx-datatable>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { echartStyles } from 'src/app/shared/echart-styles';
+import { TransportsService } from 'src/app/shared/services/transports/transports.service';
 
 
 @Component({
@@ -9,6 +10,12 @@ import { echartStyles } from 'src/app/shared/echart-styles';
 })
 export class TransportsComponent implements OnInit {
   chartLineOption3: any;
+  transports: any ; 
+
+  constructor(
+		private transportsService:TransportsService
+	) { }
+
 
   ngOnInit() {
 
@@ -35,7 +42,10 @@ export class TransportsComponent implements OnInit {
     };
     this.chartLineOption3.xAxis.data = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
+    this.transports= this.transportsService.getTransports();
+
   }
+
 
 }
 
