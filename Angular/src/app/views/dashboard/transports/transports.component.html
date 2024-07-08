@@ -1,81 +1,75 @@
 <p>transports works!</p>
 
-
 <div class="row">
-    <div class="col-lg-6 col-md-12">
-      <!-- CARD ICON -->
+  <div class="col-lg-6 col-md-12">
+    <!-- CARD ICON -->
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon mb-4">
-            <div class="card-body text-center">
-              <i class="i-Share-on-Cloud"></i>
-              <p class="text-muted mt-2 mb-2">Today's users</p>
-              <p class="text-primary text-24 line-height-1 m-0">{{count$}}</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon mb-4">
-            <div class="card-body text-center">
-              <i class="i-Add-User"></i>
-              <p class="text-muted mt-2 mb-2">New Users</p>
-              <p class="text-primary text-24 line-height-1 m-0">21</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon mb-4">
-            <div class="card-body text-center">
-              <i class="i-Money-2"></i>
-              <p class="text-muted mt-2 mb-2"> Destinations</p>
-              <p class="text-primary text-24 line-height-1 m-0">19</p>
-            </div>
-          </div>
-        </div>
-    
-      
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon-big mb-4">
-            <div class="card-body text-center">
-              <i class="i-Money-2"></i>
-              <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon-big mb-4">
-            <div class="card-body text-center">
-              <i class="i-Gear"></i>
-              <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-icon-big mb-4">
-            <div class="card-body text-center">
-              <i class="i-Bell"></i>
-              <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
-            </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon mb-4">
+          <div class="card-body text-center">
+            <i class="i-Share-on-Cloud"></i>
+            <p class="text-muted mt-2 mb-2">Today's users</p>
+            <p class="text-primary text-24 line-height-1 m-0">{{ count$ }}</p>
           </div>
         </div>
       </div>
 
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon mb-4">
+          <div class="card-body text-center">
+            <i class="i-Add-User"></i>
+            <p class="text-muted mt-2 mb-2">New Users</p>
+            <p class="text-primary text-24 line-height-1 m-0">21</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon mb-4">
+          <div class="card-body text-center">
+            <i class="i-Money-2"></i>
+            <p class="text-muted mt-2 mb-2">Destinations</p>
+            <p class="text-primary text-24 line-height-1 m-0">19</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon-big mb-4">
+          <div class="card-body text-center">
+            <i class="i-Money-2"></i>
+            <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon-big mb-4">
+          <div class="card-body text-center">
+            <i class="i-Gear"></i>
+            <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-icon-big mb-4">
+          <div class="card-body text-center">
+            <i class="i-Bell"></i>
+            <p class="line-height-1 text-title text-18 mt-2 mb-0">4021</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-      <!-- sales charts-->
-
-      <div class="col-lg-6 col-md-12">
-        <div class="card mb-4">
-          <div class="card-body p-0">
-            <h5 class="card-title m-0 p-3">Users per day</h5>
-            <div echarts [options]="chartLineOption3" style="height: 300px"></div>
-          </div>
-        </div>
+  <!-- sales charts-->
+  <div class="col-lg-6 col-md-12">
+    <div class="card mb-4">
+      <div class="card-body p-0">
+        <h5 class="card-title m-0 p-3">Users per day</h5>
+        <div echarts [options]="chartLineOption3" style="height: 300px"></div>
       </div>
-
-
+    </div>
+  </div>
 </div>
 
 <div class="row">
@@ -142,7 +136,7 @@
             Actions
           </ng-template>
           <ng-template ngx-datatable-cell-template let-row="row">
-            <button class="btn btn-primary mr-2" (click)="view(row)">View</button> 
+            <button class="btn btn-primary mr-2" (click)="view(row)">View</button>
             <button class="btn btn-warning mr-2" (click)="edit(row)">Edit</button>
             <button class="btn btn-danger" (click)="delete(row)">Delete</button>
           </ng-template>
