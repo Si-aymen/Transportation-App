@@ -11,6 +11,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardV3Component } from './dashboard-v3/dashboard-v3.component';
 import { DashboardV4Component } from './dashboard-v4/dashboard-v4.component';
 import { TransportsComponent } from './transports/transports.component';
+import { AppFormsModule } from '../forms/forms.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -19,8 +22,10 @@ import { TransportsComponent } from './transports/transports.component';
     NgxEchartsModule,
     NgxDatatableModule,
     NgbModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    AppFormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [DashboadDefaultComponent, DashboardV2Component, DashboardV3Component, DashboardV4Component,TransportsComponent]
+  declarations: [TransportsComponent, DashboadDefaultComponent, DashboardV2Component, DashboardV3Component, DashboardV4Component]
 })
 export class DashboardModule { }

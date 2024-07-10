@@ -27,4 +27,14 @@ export class TransportsService {
     return this.http.get<number>(`${this.baseUrl}/count/transports`);
   }
 
+  register(transport: Transports) {
+    const bodyData = transport;
+
+    this.http.post(`${this.baseUrl}/add-Transports`, bodyData, { responseType: 'text' })
+      .subscribe((resultData: any) => {
+        console.log(resultData);
+        alert("Transport Registered Successfully");
+      });
+  }
+
 }
