@@ -19,7 +19,6 @@ public class Stages {
     private String id;
     private String name;
     private String description;
-
     private Locations location;
     private StageType type;
     private StageStatus status;

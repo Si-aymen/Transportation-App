@@ -13,6 +13,7 @@ import { DashboardV4Component } from './dashboard-v4/dashboard-v4.component';
 import { TransportsComponent } from './transports/transports.component';
 import { AppFormsModule } from '../forms/forms.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StagesComponent } from './stages/stages.component';
 
 
 @NgModule({
@@ -26,6 +27,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppFormsModule,
     ReactiveFormsModule
   ],
-  declarations: [TransportsComponent, DashboadDefaultComponent, DashboardV2Component, DashboardV3Component, DashboardV4Component]
+  declarations: [StagesComponent, TransportsComponent, DashboadDefaultComponent, DashboardV2Component, DashboardV3Component, DashboardV4Component]
 })
 export class DashboardModule { }

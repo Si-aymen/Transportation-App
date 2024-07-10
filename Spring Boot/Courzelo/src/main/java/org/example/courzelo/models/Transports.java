@@ -18,10 +18,9 @@ import java.util.Date;
 public class Transports {
     @MongoId
     private String id;
-    private String departure;
-    private String destination;
+    private Locations departure;
+    private Locations destination;
     private Date time;
     private float price ;
-
 
 }
