@@ -62,7 +62,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-title">internship Type</div>
-                <div echarts [options]="salesChartPie" [autoResize]="true" style="height: 300px;"></div>
+                <div echarts [options]="typeChartPie" [autoResize]="true" style="height: 300px;"></div>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-title">Internships Domain</div>
-                <div echarts [options]="salesChartPie" [autoResize]="true" style="height: 300px;"></div>
+                <div echarts [options]="domainChartPie" [autoResize]="true" style="height: 300px;"></div>
             </div>
         </div>
     </div>
@@ -78,11 +78,132 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-title">Internship location</div>
-                <div echarts [options]="salesChartPie" [autoResize]="true" style="height: 300px;"></div>
+                <div echarts [options]="locationChartPie" [autoResize]="true" style="height: 300px;"></div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card o-hidden mb-4">
+        <ngx-datatable
+          style="height: calc(100vh - 270px); box-shadow: none"
+          class="material fullscreen"
+          [columnMode]="'force'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="60"
+          [scrollbarV]="true"
+          [limit]="10"
+          [rows]="stages$ | async"
+        >
+          <ngx-datatable-column name="photo" [maxWidth]="100">
+            <ng-template ngx-datatable-header-template>
+              Icon
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              <i class="i-Jeep"></i>
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="id">
+            <ng-template ngx-datatable-header-template>
+              id
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.id }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="name">
+            <ng-template ngx-datatable-header-template>
+                name
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.name }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="description">
+            <ng-template ngx-datatable-header-template>
+                description
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.description }}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="location">
+            <ng-template ngx-datatable-header-template>
+                location
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.location }}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="type">
+            <ng-template ngx-datatable-header-template>
+                type
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.type }}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="domain">
+            <ng-template ngx-datatable-header-template>
+                domain
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.domain }}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="status">
+            <ng-template ngx-datatable-header-template>
+                status
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.status }}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="entName">
+            <ng-template ngx-datatable-header-template>
+                entName
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.entName }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="duration">
+            <ng-template ngx-datatable-header-template>
+                duration
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              {{ row.duration }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="Actions" [width]="210">
+            <ng-template ngx-datatable-header-template>
+              Actions
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <button class="btn btn-primary mr-2" (click)="view(row)">View</button>
+              <button class="btn btn-warning mr-2" (click)="edit(row)">Edit</button>
+              <button class="btn btn-danger" (click)="delete(row)">Delete</button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
 
 
 <!-- 

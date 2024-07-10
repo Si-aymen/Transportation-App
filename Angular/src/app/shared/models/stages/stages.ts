@@ -4,6 +4,7 @@ export interface Stages {
       description:string;
       location:string;
       type:string;
+      domain:string;
       status:string;
       entName :string;
       duration: number;

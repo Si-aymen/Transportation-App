@@ -22,6 +22,7 @@ public class Stages {
     private Locations location;
     private StageType type;
     private StageStatus status;
+    private Domain domain ;
     private String entName ;
     private long duration;
 }
