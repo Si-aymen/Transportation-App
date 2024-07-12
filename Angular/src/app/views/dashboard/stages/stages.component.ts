@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EChartOption } from 'echarts';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,6 +18,8 @@ export class StagesComponent implements OnInit {
   typeChartPie: EChartOption;
   locationChartPie: EChartOption;
   stages$: Observable<Stages[]>;
+  stageForm: FormGroup;
+
 
   constructor(
     private dl: DataLayerService,
@@ -24,6 +27,18 @@ export class StagesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.stageForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      location: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+      status: new FormControl('', Validators.required),
+      domain: new FormControl('', Validators.required),
+      entName: new FormControl('', Validators.required),
+      duration: new FormControl('', Validators.required)
+
+    });
     this.loadStages();
   }
 
@@ -33,6 +48,7 @@ export class StagesComponent implements OnInit {
         this.stages$ = of(stages);
         this.generateDataAndChart_location(stages);
         this.generateDataAndChart_type(stages);
+        this.generateDataAndChart_doamin(stages);
 
       },
       error: (error) => {
@@ -192,6 +208,16 @@ export class StagesComponent implements OnInit {
         }
       }]
     };
+  }
+
+  onSubmit(): void {
+    if (this.stageForm.valid) {
+      const newTransport: Stages = this.stageForm.value;
+      this.stageService.register(newTransport);
+      this.loadStages();
+    } else {
+      alert('Please fill in all required fields.');
+    }
   }
 
 
