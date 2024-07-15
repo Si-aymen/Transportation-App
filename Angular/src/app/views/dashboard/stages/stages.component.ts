@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EChartOption } from 'echarts';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Stages } from 'src/app/shared/models/stages/stages';
 import { DataLayerService } from 'src/app/shared/services/data-layer.service';
 import { StagesService } from 'src/app/shared/services/stages/stages.service';
