@@ -19,6 +19,7 @@ export class StagesComponent implements OnInit {
   locationChartPie: EChartOption;
   stages$: Observable<Stages[]>;
   stageForm: FormGroup;
+  count$ :number ; 
 
 
   constructor(
@@ -40,6 +41,7 @@ export class StagesComponent implements OnInit {
 
     });
     this.loadStages();
+    this.loadCount();
   }
 
   loadStages(): void {
@@ -218,6 +220,18 @@ export class StagesComponent implements OnInit {
     } else {
       alert('Please fill in all required fields.');
     }
+  }
+
+  
+  loadCount(): void {
+    this.stageService.getCount().subscribe({
+      next: (data: number) => {
+        this.count$ = data;
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      }
+    });
   }
 
 
