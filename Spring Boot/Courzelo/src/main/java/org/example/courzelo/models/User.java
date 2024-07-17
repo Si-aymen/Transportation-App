@@ -5,15 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+
 @NoArgsConstructor
 @Data
 @Document(collection = "users")
@@ -30,6 +29,10 @@ public class User implements UserDetails {
     private UserSecurity security = new UserSecurity();
     private UserActivity activity = new UserActivity();
     private UserProfile profile = new UserProfile();
+
+    @DBRef
+    private Set<Transports> transports = new HashSet<>();
+
 
     public User(String email, String encode, Role role) {
         this.email = email;

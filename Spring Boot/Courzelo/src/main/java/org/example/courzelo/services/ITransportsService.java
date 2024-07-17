@@ -17,4 +17,6 @@ public interface ITransportsService {
     public Transports modifyTransports(Transports transports);
 
     public  Long GetNumberOfTransports();
+    public  List<Transports> searchTransports(String transportsName);
+    public void affectUserToTransports(String userID, String transportsId);
 }
