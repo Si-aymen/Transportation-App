@@ -5,7 +5,7 @@ import { Transports } from 'src/app/shared/models/transports/Transports';
 import { TransportsService } from 'src/app/shared/services/transports/transports.service';
 import { DataLayerService } from 'src/app/shared/services/data-layer.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EChartOption } from 'echarts';
+import { TagInputsComponent } from '../../forms/tag-inputs/tag-inputs.component';
 
 
 
@@ -25,8 +25,6 @@ export class TransportsComponent implements OnInit {
   autocompletes$;
   tagsCtrl2 = new FormControl([{display: 'Bangladesh', value: 'BD'}]);
   transportForm: FormGroup;
-  departureChartPie: EChartOption;
-
 
 
 
@@ -130,58 +128,6 @@ export class TransportsComponent implements OnInit {
   public onSelect(item) {
     console.log('tag selected: value is ' + item);
   }
-
-  generateDataAndChart_departure(transport: Transports[]): void {
-    const nameCounts = transport.reduce((acc, stage) => {
-      acc[stage.departure] = (acc[stage.departure] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
-
-    const chartData = Object.entries(nameCounts).map(([name, value]) => ({ name, value }));
-
-    this.Chart1(chartData);
-  }
-
-  Chart1(data: { name: string, value: number }[]): void {
-    this.departureChartPie = {
-      color: ['#62549c', '#7566b5', '#7d6cbb', '#8877bd', '#9181bd', '#6957af'],
-      tooltip: {
-        show: true,
-        backgroundColor: 'rgba(0, 0, 0, .8)'
-      },
-      xAxis: [{
-        axisLine: {
-          show: false
-        },
-        splitLine: {
-          show: false
-        }
-      }],
-      yAxis: [{
-        axisLine: {
-          show: false
-        },
-        splitLine: {
-          show: false
-        }
-      }],
-      series: [{
-        name: 'departure',
-        type: 'pie',
-        radius: '75%',
-        center: ['50%', '50%'],
-        data,
-        itemStyle: {
-          emphasis: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }]
-    };
-  }
-
 
   
 

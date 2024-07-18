@@ -47,11 +47,5 @@ public class TransportsController {
         transportsService.removeTransports(transprotsId);
     }
 
-    @PutMapping("/Affect-user-transport/{Transports-id}/{user-id}")
-    public void AffectUserToTransport(@PathVariable("Transports-id") String transprotsId,@PathVariable("user-id") String userID) {
-        transportsService.affectUserToTransports(userID,transprotsId);
-    }
-
-
 
 }

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
-import springfox.documentation.spi.schema.EnumTypeDeterminer;
 
 @Getter
 @Setter
@@ -22,7 +21,6 @@ public class Stages {
     private Locations location;
     private StageType type;
     private StageStatus status;
-    private Domain domain ;
     private String entName ;
     private long duration;
 }
